@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>🎉 Lucky Draw</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #4e73df, #1cc88a);
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    .box {
+      background: rgba(0,0,0,0.3);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .amount {
+      font-size: 60px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    button {
+      padding: 10px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: white;
+      color: black;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>🎉 Congratulations!</h1>
+    <div class="amount" id="result"></div>
+    
+  </div>
+
+  <script>
+    function generate() {
+      let randomChance = Math.random(); // 0 to 1
+      let amount;
+
+      if (randomChance < 0.9) {
+        // 90% chance → 2-digit number
+        amount = Math.floor(Math.random() * (99 - 10 + 1)) + 10;
+      } else {
+        // 10% chance → 3-digit number
+        amount = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
+      }
+
+      document.getElementById("result").innerText =
+        "You won ₹" + amount + "!";
+    }
+
+    generate();
+  </script>
+
+</body>
+</html>
